@@ -1,0 +1,6 @@
+*.h5
+*.pt
+*.mp4
+runs/
+.ipynb_checkpoints/
+dataset/
