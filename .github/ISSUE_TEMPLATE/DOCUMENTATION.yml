@@ -1,0 +1,37 @@
+name: "📚 Documentation"
+description: "Report an issue or request a change in the documentation"
+title: "📚 [DOCS] - <title>"
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve our documentation!
+
+  - type: textarea
+    id: doc-issue
+    attributes:
+      label: "What is the documentation issue?"
+      description: "Please describe what's missing, incorrect, or could be improved. Include links to the relevant pages if possible."
+      placeholder: "The documentation for [...] is unclear about [...]."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: "Suggested Improvement"
+      description: "How would you like to see the documentation improved?"
+      placeholder: "I suggest adding a section that explains [...]."
+    validations:
+      required: true
+
+  - type: input
+    id: github-user
+    attributes:
+      label: "Your GitHub Username/URL (Optional)"
+      description: "So we can follow up with you if we have questions."
+      placeholder: "@username or https://github.com/username"
+    validations:
+      required: true
+
