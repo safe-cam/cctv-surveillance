@@ -1,0 +1,35 @@
+name: "💡 Feature Request"
+description: Create a ticket for a new feature request
+title: "💡 [FEATURE REQUEST] - <title>"
+labels: ['feature']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request!
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: "What is the feature you're requesting?"
+      description: "A clear and concise description of what you want to happen."
+      placeholder: "I would like to be able to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-solution
+    attributes:
+      label: "What problem does this feature solve?"
+      description: "A clear and concise description of what the problem is."
+    validations:
+      required: true
+
+  - type: input
+    id: github-user
+    attributes:
+      label: "Your GitHub Username/URL"
+      description: "So we can credit you for the suggestion!"
+      placeholder: "@username or https://github.com/username"
+    validations:
+      required: true
