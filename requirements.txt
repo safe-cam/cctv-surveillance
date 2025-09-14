@@ -1,0 +1,32 @@
+# Core ML / DL
+tensorflow==2.10.0
+keras==2.10.0
+
+# Data science
+numpy
+pandas
+scipy
+matplotlib
+scikit-learn
+
+# Computer Vision
+opencv-python
+mtcnn
+retina-face
+
+# Web / API
+flask
+flask-cors
+gunicorn
+requests
+
+# Jupyter / Dev
+jupyter
+notebook
+ipykernel
+ipywidgets
+
+# Testing
+pytest
+pytest-cov
+pytest-qt
