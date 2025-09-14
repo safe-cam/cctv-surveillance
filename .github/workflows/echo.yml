@@ -1,0 +1,13 @@
+name: checking-workflows
+on: [ push ]
+
+jobs:
+    print-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Getting CI ready
+              run: echo "Getting CI Workflows ready"
+
+            - name: Exiting Basic CI
+              run: echo "Exiting Basic CI, moving to main jobs"
+
