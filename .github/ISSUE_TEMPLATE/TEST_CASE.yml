@@ -1,0 +1,39 @@
+name: "🧪 Test Case"
+description: "Propose a new test case"
+title: "🧪 [TEST] - <title>"
+labels: ["test"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve test coverage!
+
+  - type: textarea
+    id: scenario
+    attributes:
+      label: "Test Scenario"
+      description: "Describe the scenario that this test case will cover."
+      placeholder: "This test will verify that the user login fails with an incorrect password."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "Acceptance Criteria"
+      description: "What are the expected outcomes for this test to pass?"
+      placeholder: |
+        - GIVEN a user with an incorrect password
+        - WHEN the user attempts to log in
+        - THEN an 'Invalid credentials' error should be returned.
+    validations:
+      required: true
+
+  - type: input
+    id: github-user
+    attributes:
+      label: "Your GitHub Username/URL (Optional)"
+      description: "So we can follow up with you if we have questions."
+      placeholder: "@username or https://github.com/username"
+    validations:
+      required: true
