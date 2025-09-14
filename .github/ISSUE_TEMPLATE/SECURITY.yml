@@ -1,0 +1,43 @@
+name: "🛡️ Security Vulnerability"
+description: "Report a security vulnerability"
+title: "🛡️ [SECURITY] - <title>"
+labels: ["security"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please do not post sensitive information here.**
+        If the vulnerability is critical, please consider reaching out to the maintainers directly.
+
+  - type: textarea
+    id: vulnerability-description
+    attributes:
+      label: "Vulnerability Description"
+      description: "Provide a clear and concise description of the vulnerability."
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: "Impact"
+      description: "What is the potential impact of this vulnerability?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proof-of-concept
+    attributes:
+      label: "Proof of Concept"
+      description: "Please provide steps to reproduce the vulnerability. (Code snippets, screenshots, etc.)"
+    validations:
+      required: false
+
+  - type: input
+    id: github-user
+    attributes:
+      label: "Your GitHub Username/URL (Optional)"
+      description: "So we can follow up with you if we have questions."
+      placeholder: "@username or https://github.com/username"
+    validations:
+      required: true

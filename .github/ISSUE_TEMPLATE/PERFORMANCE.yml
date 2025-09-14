@@ -1,0 +1,46 @@
+name: "⚡ Performance Issue"
+description: "Report a performance-related issue"
+title: "⚡ [PERF] - <title>"
+labels: ["performance"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this performance issue. Please provide as much detail as possible.
+
+  - type: textarea
+    id: perf-description
+    attributes:
+      label: "Describe the performance issue"
+      description: "A clear and concise description of the performance problem. Is it slow, using too much memory, etc.?"
+      placeholder: "The application becomes very slow when I..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: "Steps to Reproduce"
+      description: "Please provide detailed steps to reproduce the performance issue."
+      placeholder: |
+        1. Start the application with...
+        2. Perform action '...'
+        3. Observe high CPU usage.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "Expected Behavior"
+      description: "What was the expected performance?"
+      placeholder: "The action should complete in under a second with minimal resource usage."
+
+  - type: input
+    id: github-user
+    attributes:
+      label: "Your GitHub Username/URL (Optional)"
+      description: "So we can follow up with you if we have questions."
+      placeholder: "@username or https://github.com/username"
+    validations:
+      required: true
