@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Profile</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { background-color: #f4f6f9; }
+    .profile-card {
+      max-width: 500px;
+      margin: 50px auto;
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: -75px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="">Surveillance Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navUser" aria-controls="navUser" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Action Buttons -->
+    <div class="collapse navbar-collapse justify-content-end" id="navUser">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Change Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- User Profile Card -->
+  <div class="container">
+    <div class="card profile-card text-center shadow-sm">
+      <div class="card-body">
+        <img src="https://via.placeholder.com/150" alt="Profile Photo" class="profile-img mx-auto d-block">
+        <h4 class="card-title mt-3">Mohit</h4>
+        <p class="card-text">
+          <strong>Role:</strong> Engineering Student, BTech<br>
+          <strong>Expertise:</strong> Python, Backend Development, Machine Learning
+        </p>
+        <p class="card-text">Welcome to your personal profile. Manage your account settings, update your password, or logout using the options above.</p>
+        <div class="d-flex justify-content-center mt-3">
+          <a href="#" class="btn btn-outline-primary mr-2">Change Password</a>
+          <a href="#" class="btn btn-outline-danger">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap and jQuery JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
