@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Surveillance Analytics</title>
+</head>
+<body>
+    <h1>Configuration</h1>
+    <form method="POST">
+        <h2>Detection Tasks</h2>
+        {% for task in ["Vehicle Detection", "License Plate Detection", 
+                       "Fire/Smoke Detection", "Accident Detection",
+                       "Face Detection", "Gunshot Detection"] %}
+        <label>
+            <input type="checkbox" name="detection_tasks" value="{{ task }}"
+                   {% if task in session.get('detection_options', ['Face Detection']) %}checked{% endif %}>
+            {{ task }}
+        </label><br>
+        {% endfor %}
+        
+        <h2>Customer Info</h2>
+        <input type="text" name="customer_name" placeholder="Customer Name" 
+               value="{{ session.get('customer_name', '') }}" required>
+        
+        <h2>Admin Settings</h2>
+        <label>
+            <input type="checkbox" name="admin_mode"> Admin Mode
+        </label>
+        <input type="password" name="admin_password" placeholder="Admin Password">
+        <select name="new_plan">
+            <option value="Basic">Basic</option>
+            <option value="Pro">Pro</option>
+            <option value="Enterprise">Enterprise</option>
+        </select>
+        
+        <button type="submit">Save Configuration</button>
+    </form>
+</body>
+</html>
