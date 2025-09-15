@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Process Media</title>
+</head>
+<body>
+    <h1>Process Media</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <h2>Upload File</h2>
+        <input type="file" name="file">
+        <button type="submit">Process File</button>
+        
+        <h2>Webcam Capture</h2>
+        <div id="webcam-container">
+            <video id="webcam" width="640" height="480" autoplay></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <button type="button" onclick="capture()">Capture</button>
+        </div>
+        <script>
+            const video = document.getElementById('webcam');
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => video.srcObject = stream);
+            
+            function capture() {
+                const canvas = document.getElementById('canvas');
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                canvas.getContext('2d').drawImage(video, 0, 0);
+                
+                canvas.toBlob(blob => {
+                    const file = new File([blob], 'webcam.jpg');
+                    const formData = new FormData();
+                    formData.append('webcam_image', file);
+                    
+                    fetch('/process', {
+                        method: 'POST',
+                        body: formData
+                    }).then(response => response.blob())
+                      .then(blob => {
+                          const url = window.URL.createObjectURL(blob);
+                          const a = document.createElement('a');
+                          a.href = url;
+                          a.download = 'processed.jpg';
+                          document.body.appendChild(a);
+                          a.click();
+                          window.URL.revokeObjectURL(url);
+                      });
+                }, 'image/jpeg');
+            }
+        </script>
+    </form>
+</body>
+</html>
