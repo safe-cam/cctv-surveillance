@@ -3,6 +3,7 @@
 runs/
 .ipynb_checkpoints/
 dataset/
+<<<<<<< HEAD
 .camera_venv
 *.zip
 *.rar
@@ -11,3 +12,8 @@ dataset/
 *.txt
 __pycache__/
 *.pt
+=======
+*.rar
+.camera_venv/
+.venv/
+>>>>>>> e3312ef0 (chore: update .gitignore)
