@@ -1,5 +1,0 @@
-Car
-Motorcycle
-Truck
-Bus
-Bicycle
