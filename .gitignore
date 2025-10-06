@@ -4,3 +4,6 @@
 runs/
 .ipynb_checkpoints/
 dataset/
+*.rar
+.camera_venv/
+.venv/
