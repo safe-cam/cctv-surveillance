@@ -191,7 +191,7 @@ except Exception as e:
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 try:
-    gunshot_model = load_model(r"F:\camera\gun shot\gunshot_model_epoch_05_acc_0.90_valacc_0.96.h5")
+    gunshot_model = load_model(r"models/gun_shot/gunshot_model_epoch_05_acc_0.90_valacc_0.96.h5")
 except Exception as e:
     st.warning("Gunshot model not found. Gunshot detection will be disabled.")
     gunshot_model = None
@@ -237,9 +237,9 @@ def process_frame(frame, selected_tasks):
             else:
                 st.info(f"Ignored invalid plate: {plate_text}")
 
-        if "Fire/Smoke Detection" in selected_tasks:
-            results = fire_and_smoke_detection_model(processed)
-            processed = results[0].plot()
+    if "Fire/Smoke Detection" in selected_tasks:
+        results = fire_and_smoke_detection_model(processed)
+        processed = results[0].plot()
 
     if "Accident Detection" in selected_tasks:
         results = accident_detection_model(processed)
@@ -414,7 +414,7 @@ if role == "User":
     
     if dashboard_mode == "Detection":
         st.title("Customer Dashboard - AI Surveillance")
-        main_mode = st.radio("Select Input Type:", ["Webcam", "Upload Media"], key="user_main_mode")
+        main_mode = st.radio("Select Input Type:", ["Webcam", "Upload Media", "Live Camera"], key="user_main_mode")
         output_dir = "processed_media"
         os.makedirs(output_dir, exist_ok=True)
 
@@ -500,6 +500,29 @@ if role == "User":
                 else:
                     st.error("Unsupported file type.")
             st.button("Back to Dashboard", key="back_upload", on_click=lambda: st.experimental_rerun())
+
+        elif main_mode == "Live Camera":
+            st.subheader("Live Camera Feed (Laptop Webcam)")
+            stframe = st.empty()
+            stop_button = st.button("Stop Live Camera")
+
+            cap = cv2.VideoCapture(0)  # Open default webcam
+            if not cap.isOpened():
+                st.error("Could not access the webcam. Please check camera permissions.")
+            else:
+                st.info("Starting live camera... press Stop to end.")
+                while True:
+                    ret, frame = cap.read()
+                    if not ret:
+                        st.warning("Failed to read from camera.")
+                        break
+                    processed_frame = process_frame(frame, detection_options)
+                    stframe.image(processed_frame, channels="BGR", use_column_width=True)
+                    if stop_button:
+                        break
+                cap.release()
+                st.success("Live camera stopped.")
+
 
     elif dashboard_mode == "Manage Cameras":
         st.title("Manage Your Cameras")
