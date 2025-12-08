@@ -10,3 +10,4 @@ dataset/
 *.png	
 *.txt
 __pycache__/
+*.pt
