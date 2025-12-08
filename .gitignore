@@ -1,6 +1,12 @@
 *.h5
-*.pt
 *.mp4
 runs/
 .ipynb_checkpoints/
 dataset/
+.camera_venv
+*.zip
+*.rar
+*.jpg
+*.png	
+*.txt
+__pycache__/
