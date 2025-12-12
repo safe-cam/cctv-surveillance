@@ -16,4 +16,18 @@ __pycache__/
 *.rar
 .camera_venv/
 .venv/
+<<<<<<< HEAD
 >>>>>>> e3312ef0 (chore: update .gitignore)
+=======
+
+# ml models dataset
+ML models/accident detection/dataset
+ML models/face behaviour rec/custom/dataset
+ML models/fire detection YOLOv8/dataset
+ML models/gun shot/dataset
+ML models/license plate rec/dataset
+ML models/Vehicle detection YOLOv8/dataset-vehicles
+
+
+
+>>>>>>> 629397e7 (perf: #72 ignored dataset of ML model)
